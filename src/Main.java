@@ -30,11 +30,11 @@ public class Main {
 
                 md.update(("0" + bin16).getBytes("UTF-8"));
                 String tmp = String.format("%064x", new java.math.BigInteger(1, md.digest()));
-                vYes[i] = tmp.substring(0, 32);
+                vYes[i] = tmp.substring(0, 8);
 
                 md.update(("1" + bin16).getBytes("UTF-8"));
                 tmp = String.format("%064x", new java.math.BigInteger(1, md.digest()));
-                vNo[i] = tmp.substring(0, 32);
+                vNo[i] = tmp.substring(0, 8);
 
             } catch (Exception e) {
                 e.printStackTrace();
