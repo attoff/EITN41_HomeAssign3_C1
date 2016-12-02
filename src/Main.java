@@ -29,11 +29,12 @@ public class Main {
                 md = MessageDigest.getInstance("SHA-256");
 
                 md.update(("0" + bin16).getBytes("UTF-8"));
-                vYes[i] = String.format("%064x", new java.math.BigInteger(1, md.digest()));
-
+                String tmp = String.format("%064x", new java.math.BigInteger(1, md.digest()));
+                vYes[i] = tmp.substring(0, 32);
 
                 md.update(("1" + bin16).getBytes("UTF-8"));
-                vNo[i] = String.format("%064x", new java.math.BigInteger(1, md.digest()));
+                tmp = String.format("%064x", new java.math.BigInteger(1, md.digest()));
+                vNo[i] = tmp.substring(0, 32);
 
             } catch (Exception e) {
                 e.printStackTrace();
@@ -55,7 +56,7 @@ public class Main {
         }
         System.out.println(g);
         System.out.println(prob);
-        System.out.println(prob*100 / vYes.length +"% probability");
+        System.out.println(prob * 100 / vYes.length + "% probability");
 
     }
 }
